@@ -1,0 +1,64 @@
+# Eltoken Smart Contract
+
+## Overview
+
+Eltoken is a custom ERC20 token built on the Ethereum blockchain using Solidity. This smart contract allows the contract owner to mint new tokens, and it includes a burn function with a specific limit on the amount that can be burned in a single transaction. The contract is based on OpenZeppelin's secure and reliable ERC20 implementation.
+
+## Features
+
+- **Minting**: The contract owner can mint new tokens to any specified address.
+- **Burning**: Users can burn up to 10 tokens per transaction.
+- **Transfer**: Standard ERC20 transfer functionality is included.
+
+## Contract Details
+
+- **Solidity Version**: 0.8.18
+- **OpenZeppelin Contracts**: Uses OpenZeppelin's ERC20 and Ownable contracts (v4.9.0).
+- **License**: MIT
+
+## Functions
+
+### Constructor
+
+```solidity
+constructor(string memory name, string memory symbol) ERC20(name, symbol) {}
+nitializes the ERC20 token with a name and symbol passed during deployment.
+
+## Mint
+"function mint(address to, uint256 amount) public onlyOwner"
+Description: Allows the contract owner to mint new tokens.
+Parameters:
+to: The address that will receive the minted tokens.
+amount: The number of tokens to mint.
+Access Control: Only the contract owner can call this function.
+
+## Burn
+function burn(uint256 amount) public
+Description: Allows users to burn tokens from their own balance. The burn amount is limited to 10 tokens per transaction.
+Parameters:
+amount: The number of tokens to burn. Must not exceed 10 tokens.
+Requirements:
+The burn amount must be less than or equal to 10.
+
+## Transfer
+function transfer(address to, uint256 amount) public override returns (bool)
+Description: Transfers tokens from the sender's account to a specified address.
+Parameters:
+to: The recipient address.
+amount: The number of tokens to transfer.
+Returns: true if the transfer is successful.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
