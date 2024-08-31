@@ -1,0 +1,43 @@
+##Features
+Minting: The contract owner can mint new DGN tokens.
+Burning: Users can burn their DGN tokens, which is tracked and used for playing the gacha game.
+Gacha Game: Users can spend their tokens to win virtual items like Swords, Potions, and Shields.
+
+##Contract Details
+Name: DegenToken
+Symbol: DGN
+Standard: ERC20
+Network: Ethereum
+
+##Functions
+mint(uint256 amount): Allows the owner to mint DGN tokens.
+burn(uint256 amount): Allows users to burn their tokens. Burned tokens are tracked per user.
+gacha(): Allows users to play the gacha game by burning tokens. Rewards users with random virtual items.
+getInventory(): Returns the user's inventory of gacha items.
+transfer(address recipient, uint256 amount): Overrides the ERC20 transfer function to enable token transfers.
+
+## Mint Tokens (Owner Only)
+As the contract owner, you can mint new tokens:
+mint(1000 * 10**18);
+This will mint 1000 DGN tokens to the owner's address.
+
+
+## Burn Tokens
+Users can burn their DGN tokens to be eligible for the gacha game:
+burn(200 * 10**18);
+This will burn 200 DGN tokens from the user's balance.
+
+## Play the Gacha Game
+After burning tokens, users can play the gacha game:
+gacha();
+This will deduct 100 DGN tokens and randomly award a virtual item (Sword, Potion, or Shield). The result is stored in the user's inventory.
+
+## Check Your Inventory
+Users can check the items they have collected:
+getInventory();
+This will return a string showing the number of Swords, Potions, and Shields in the user's inventory.
+
+## Transfer Tokens
+Users can transfer DGN tokens to another address:
+transfer(recipientAddress, 50 * 10**18);
+This will transfer 50 DGN tokens to the specified recipient address.
